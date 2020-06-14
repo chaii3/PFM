@@ -1,5 +1,7 @@
 import {Application, Request, Response, Router} from 'express';
 import ServerConfig from '../config/config';
+import RoutesManager from '../modules/RoutesManages';
+import App from '../modules/App';
 
 const EXPRESS     = require('express');
 const BODY_PARSER = require('body-parser');
@@ -7,7 +9,7 @@ const CORS        = require('cors');
 const MORGAN      = require('morgan');
 const config      = ServerConfig.getInstance();
 
-const app: Application = EXPRESS();
+const app: Application = App.get();
 const router: Router = Router();
 
 app.use(MORGAN('combined'));
@@ -24,10 +26,5 @@ app.get('/test', (req: Request, res: Response) => {
 	res.send('test is ok');
 });
 
-router.get('/' +
-	'', (req: Request, res: Response) => {
-	res.send('test from router');
-});
-
-app.use('/api', router);
+RoutesManager.initRoutes();
 
