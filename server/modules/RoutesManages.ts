@@ -11,13 +11,7 @@ export default class RoutesManager {
 	/** Регистрация всех роутов при инициализации. */
 	public static initRoutes(): void {
 		const app: Application = App.get();
-		const testRoute = Router();
 
-		testRoute.get('/', (req, res) => {
-			res.send('tetetet')
-		})
-
-		app.use(this.api.getBase(), this.api.init())
-		app.use('/jik', testRoute)
+		app.use(this.api.getBase(), this.api.init());
 	}
 }

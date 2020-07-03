@@ -1,7 +1,6 @@
 import {AbstractRoute} from '../../models/Application/InterfaceRoute';
 import App from '../App';
 import { Router } from 'express';
-import ActionApiInit from './actions/ActionApiInit';
 import ControllerApi from './ControllerApi';
 
 /**
@@ -24,9 +23,8 @@ export default class RouteApi extends AbstractRoute {
     public init(): Router {
         this.router.get(this.controller.actionInit().path(), this.controller.actionInit().action());
         this.router.get('/', (req, res) => {
-            res.send('privet')
-        })
-        console.log(11111);
+            res.send('privet');
+        });
 
         return this.router;
     }
