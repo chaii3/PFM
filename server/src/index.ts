@@ -21,15 +21,10 @@ client.connect((error: MongoError, client: MongoClient) => {
 	});
 	console.log('Начинаю криптокодирование');
 	const test = Crypto.AES.encrypt('privet', 'key').toString();
-	console.log('privet', 'до кодирование');
-	console.log(test);
-	console.log('обратно')
-	console.log(Crypto.AES.decrypt(test, 'key').toString())
-	// const collection: Collection = client.db('test').collection('users');
-	// console.log(client.db('test').collection('users'));
-	// client.db('test').collection('users').findOne({}, (err, doc) => {
-	// 	console.log(doc.name);
-	// });
+	const db: Collection = client.db('PFMDB').collection('users');
+	db.find().toArray((err, doc) => {
+		console.log(doc);
+	})
 });
 
 app.use('/', EXPRESS.static(__dirname + '/dist'));

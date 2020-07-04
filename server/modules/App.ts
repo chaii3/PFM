@@ -29,7 +29,7 @@ export default class App {
 
 	public static getMongo(): MongoClient {
 		if (!this.mongoClient) {
-			this.mongoClient = new MongoClient('mongodb://localhost:27017/', {
+			this.mongoClient = new MongoClient('', {
 				useNewUrlParser: true,
 			});
 		}
