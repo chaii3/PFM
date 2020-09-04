@@ -1,19 +1,16 @@
-import { Application, Router } from "express";
-import App from "../../modules/App";
+import {Router} from 'express';
 
 /**
  * Интерфейс для класса роута.
  */
-export abstract class AbstractRoute {
-    /** Экземпляр приложения */
-    abstract app: Application = App.get();
+export interface AbstractRoute {
 
-    /** Экзeмплярп объекта роута для инициализации. */
-    abstract router: Router = Router();
+    /** Экземпляр объекта роута для инициализации. */
+    router: Router;
 
     /** Получить основание для роута. */
-    abstract getBase(): void;
+    getBase: () => string;
 
     /** Инициализация экшенов. */
-    abstract  init(): void;
+    init: () => void;
 }

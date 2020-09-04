@@ -1,5 +1,5 @@
 import {Application} from 'express';
-import {MongoClient} from 'mongodb';
+import RoutesManager from './RoutesManages';
 
 /**
  * Класс для доступа к экземпляру к текущему приложению экспресс
@@ -9,8 +9,7 @@ export default class App {
 	};
 
 	private static instance: Application;
-
-	private static mongoClient: MongoClient;
+	private static routeManager: RoutesManager;
 
 	public static get(): Application {
 		if (!this.instance) {
@@ -27,13 +26,11 @@ export default class App {
 		return this.instance;
 	}
 
-	public static getMongo(): MongoClient {
-		if (!this.mongoClient) {
-			this.mongoClient = new MongoClient('', {
-				useNewUrlParser: true,
-			});
-		}
+	public static routesManager(): RoutesManager {
+			if (!this.routeManager) {
+				this.routeManager = new RoutesManager();
+			}
 
-		return this.mongoClient;
+			return this.routeManager;
 	}
 }

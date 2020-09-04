@@ -1,17 +1,25 @@
-import App from './App';
-import { Application, Router } from 'express';
+import {Application} from 'express';
+import {AbstractRoute} from '../models/Application/InterfaceRoute';
 import RouteApi from './API/RouteApi';
+import App from './App';
 
 /**
  * Класс для управления роунтингов приложения.
  */
 export default class RoutesManager {
-	private static api: RouteApi = new RouteApi();
+	private routes: AbstractRoute[] = [
+		(new RouteApi()),
+	];
+
+	private api: RouteApi = new RouteApi();
 
 	/** Регистрация всех роутов при инициализации. */
-	public static initRoutes(): void {
+	public initRoutes(): void {
 		const app: Application = App.get();
 
-		app.use(this.api.getBase(), this.api.init());
+		this.routes.forEach((route: AbstractRoute) => {
+			console.log('log');
+			route.init();
+		});
 	}
 }

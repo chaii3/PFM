@@ -1,31 +1,25 @@
+import {Router} from 'express';
 import {AbstractRoute} from '../../models/Application/InterfaceRoute';
 import App from '../App';
-import { Router } from 'express';
 import ControllerApi from './ControllerApi';
 
 /**
  * Роут для Api.
  */
-export default class RouteApi extends AbstractRoute {
-    public constructor() {
-        super();
-    }
+export default class RouteApi implements AbstractRoute {
+	private controller: ControllerApi = new ControllerApi();
+    private app = App.get();
 
-    public app = App.get();
-    public router = Router();
-
-    private controller: ControllerApi = new ControllerApi();
+	public router = Router();
 
     public getBase(): string {
         return '/api'
     }
 
-    public init(): Router {
+    public init(): void {
         this.router.get(this.controller.actionInit().path(), this.controller.actionInit().action());
-        this.router.get('/', (req, res) => {
-            res.send('privet');
-        });
 
-        return this.router;
+
+		App.get().use(this.getBase(), this.router);
     }
 }
