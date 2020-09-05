@@ -7,6 +7,7 @@ import Child from './components/child';
 	          <div>
 	          	Component Text
               	<Child/>
+	          <router-view></router-view>
               </div>
       `,
 	components: {
