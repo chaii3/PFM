@@ -1,6 +1,6 @@
 /**
  * Конфиг для сервера.
- */
+*/
 export default class ServerConfig {
     private constructor() {}
 

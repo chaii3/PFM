@@ -1,4 +1,5 @@
 import {Router} from 'express';
+import {InterfaceAction} from '../../models/Application/InterfaceAction';
 import {AbstractRoute} from '../../models/Application/InterfaceRoute';
 import App from '../App';
 import ControllerApi from './ControllerApi';
@@ -18,6 +19,8 @@ export default class RouteApi implements AbstractRoute {
 
     public init(): void {
         this.router.get(this.controller.actionInit().path(), this.controller.actionInit().action());
+
+        this.router.post(this.controller.actionAuth().path(), this.controller.actionAuth().action());
 
 
 		App.get().use(this.getBase(), this.router);

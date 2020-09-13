@@ -9,7 +9,7 @@ module.exports = {
 	entry:        path.resolve(__dirname, 'src/index.js'),
 	watch:        true,
 	watchOptions: {
-		poll: 1000
+		poll:           1000,
 	},
 	output:       {
 		filename: "bundle.js",
@@ -24,9 +24,9 @@ module.exports = {
 	},
 	devServer:    {
 		contentBase: 'dist',
-		hot:          true,
-		host:         'localHost',
-		port:         4040,
+		hot:         true,
+		host:        'localHost',
+		port:        4040,
 	},
 	module:       {
 		rules: [

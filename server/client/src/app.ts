@@ -1,17 +1,13 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import Child from './components/child';
 
 @Component({
 	template: `
-	          <div>
-	          	Component Text
-              	<Child/>
-	          <router-view></router-view>
-              </div>
+	          <div class="app">
+	          	<router-view></router-view>
+			  </div>
       `,
 	components: {
-		Child,
 	},
 })
 export default class App extends Vue {

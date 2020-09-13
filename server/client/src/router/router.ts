@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Child from '../components/child';
+import Auth from '../components/Auth';
 
 Vue.use(VueRouter);
 
@@ -8,8 +8,8 @@ const router: VueRouter = new VueRouter();
 
 router.addRoutes([
 	{
-		component: Child,
-		path: '/child'
+		component: Auth,
+		path: '/auth',
 	}
 ]);
 

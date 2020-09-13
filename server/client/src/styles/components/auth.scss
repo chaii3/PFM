@@ -1,0 +1,53 @@
+@import "helpers/vars";
+
+$padding-auth: 48px;
+.auth {
+	display:        flex;
+	flex-direction: column;
+
+	text-align:     center;
+	margin-left:    auto;
+	margin-right:   auto;
+	margin-top:     150px;
+	border-radius:  12px;
+	box-shadow:     0 0 7px 2px $blue;
+	padding-bottom: $padding-auth;
+
+	border:         2px solid $blue-dark;
+
+	&__inputs {
+		display:       flex;
+		flex-flow:     row nowrap;
+		padding-left:  $padding-auth;
+		padding-right: $padding-auth;
+
+		*:first-child {
+			margin-right: 12px;
+		}
+	}
+
+	&__submit-button {
+		user-select:    none;
+		cursor:         pointer;
+		text-align:     center;
+		border:         2px solid $light-dark;
+		transition:     .5s;
+
+		width:          99%;
+		margin-top:     25px;
+		margin-left:    auto;
+		margin-right:   auto;
+		padding-top:    8px;
+		padding-bottom: 8px;
+
+		border-radius:  8px;
+
+		&:hover {
+			border-radius: 0;
+			border-color:  $blue-dark;
+			border-left:   none;
+			border-right:  none;
+			width:         100%;
+		}
+	}
+}
