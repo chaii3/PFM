@@ -1,6 +1,6 @@
-import {Application} from 'express';
-import {Client} from 'pg';
-import {ModelCtor, Sequelize, SequelizeOptions} from 'sequelize-typescript';
+import { Application } from 'express';
+import { Client } from 'pg';
+import { ModelCtor, Sequelize, SequelizeOptions } from 'sequelize-typescript';
 import Users from './API/DataBase/Users/Users';
 import RoutesManager from './RoutesManages';
 
@@ -34,19 +34,19 @@ export default class App {
 	public static initDbConnection(successCb: () => void): void {
 		if (!this.pg) {
 			this.pg = new Client({
-				user:     'postgres',
-				host:     'localhost',
+				user: 'postgres',
+				host: 'localhost',
 				database: 'pfm',
-				port:     5432,
+				port: 5432,
 				password: '123',
 			});
 
 			this.sequelize = new Sequelize('postgresql://localhost:5432/pfm', {
-				dialect:  'postgres',
+				dialect: 'postgres',
 				username: 'postgres',
-				host:     'localhost',
+				host: 'localhost',
 				database: 'pfm',
-				port:     5432,
+				port: 5432,
 				password: '123',
 			});
 
@@ -54,15 +54,6 @@ export default class App {
 				Users,
 			]);
 		}
-
-		this.pg.connect()
-			.then((r) => {
-				console.log(r, 33);
-				successCb();
-			})
-			.catch(() => {
-				console.log('Не могу подключиться к базе.');
-			});
 
 	}
 

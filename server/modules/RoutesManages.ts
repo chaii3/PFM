@@ -18,7 +18,6 @@ export default class RoutesManager {
 		const app: Application = App.get();
 
 		this.routes.forEach((route: AbstractRoute) => {
-			console.log('log');
 			route.init();
 		});
 	}
